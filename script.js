@@ -18,7 +18,7 @@ function computerPlay(){
 
 }
 function oneRound(playerSelection, computerSelection){
-    computerSelection=computerPlay();
+  
     switch (playerSelection.toUpperCase()){
         case "ROCK":
             switch (computerSelection){
@@ -28,6 +28,8 @@ function oneRound(playerSelection, computerSelection){
                 case "SCISSORS":
                     return "You win"
                     break;
+                case "ROCK":
+                    return "Tie"
             }
             break;
         case "PAPER":
@@ -38,6 +40,8 @@ function oneRound(playerSelection, computerSelection){
                 case "ROCK":
                     return "You win"
                     break;
+                case "PAPER":
+                    return "Tie"
             }
             break;
         case "SCISSORS":
@@ -48,6 +52,8 @@ function oneRound(playerSelection, computerSelection){
                 case "PAPER":
                     return "You win"
                     break;
+                case "SCISSORS":
+                        return "Tie"
             }
             break;
     }
@@ -55,3 +61,7 @@ function oneRound(playerSelection, computerSelection){
 
 }
 computerPlay()
+const playerSelection = "ROCK";
+const computerSelection = computerPlay();
+console.log(computerSelection);
+console.log(oneRound(playerSelection, computerSelection));
