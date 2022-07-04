@@ -60,8 +60,29 @@ function oneRound(playerSelection, computerSelection){
 
 
 }
-computerPlay()
+function game(){
+      let playerScore=0
+       let computerScore=0
+    for (let i = 0; i < 5; i++) {
+       let playerSelection=prompt("Pick")
+       computerSelection = computerPlay();
+       let result=oneRound(playerSelection, computerSelection)
+       if(result=="You win")
+        playerScore++;
+       else if(result=="You lose")
+       computerScore++;
+       console.log(result+" score player: "+playerScore+" computer: "+computerScore)
+     }
+     if(playerScore>computerScore)
+        console.log("you won the game")
+     else if(playerScore<computerScore)
+        console.log("you lost the game")
+     else
+        console.log("tied game")
+}
+game()
+/*computerPlay()
 const playerSelection = "ROCK";
 const computerSelection = computerPlay();
 console.log(computerSelection);
-console.log(oneRound(playerSelection, computerSelection));
+console.log(oneRound(playerSelection, computerSelection));*/
