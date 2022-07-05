@@ -23,39 +23,58 @@ function oneRound(playerSelection, computerSelection){
         case "ROCK":
             switch (computerSelection){
                 case "PAPER":
-                    return "You lose"
+                    cmpScore.textContent=parseInt(cmpScore.textContent)+1
+                    rndResult.textContent= "You lose"
                     break;
                 case "SCISSORS":
-                    return "You win"
+                    yourScore.textContent=parseInt(yourScore.textContent)+1
+                    rndResult.textContent= "You win"
                     break;
                 case "ROCK":
-                    return "Tie"
+                    rndResult.textContent= "Tie"
             }
             break;
         case "PAPER":
             switch (computerSelection){
                 case "SCISSORS":
-                    return "You lose"
+                    cmpScore.textContent=parseInt(cmpScore.textContent)+1
+                    rndResult.textContent= "You lose"
                     break;
                 case "ROCK":
-                    return "You win"
+                    yourScore.textContent=parseInt(yourScore.textContent)+1
+                    rndResult.textContent= "You win"
                     break;
                 case "PAPER":
-                    return "Tie"
+                    rndResult.textContent= "Tie"
             }
             break;
         case "SCISSORS":
             switch (computerSelection){
                 case "ROCK":
-                    return "You lose"
+                    cmpScore.textContent=parseInt(cmpScore.textContent)+1
+                    rndResult.textContent= "You lose"
                     break;
                 case "PAPER":
-                    return "You win"
+                    yourScore.textContent=parseInt(yourScore.textContent)+1
+                    rndResult.textContent= "You win"
                     break;
                 case "SCISSORS":
-                        return "Tie"
+                    rndResult.textContent= "Tie"
             }
             break;
+    }
+    if(parseInt(yourScore.textContent)==5){
+        rndResult.textContent="YOU WON THE GAME"
+        choices.forEach((choice)  => {
+            choice.disabled=true;
+        })
+    }
+    
+    if(parseInt(cmpScore.textContent)==5){
+        rndResult.textContent="YOU WON THE GAME"
+        choices.forEach((choice)  => {
+            choice.disabled=true;
+        })
     }
 
 
@@ -80,12 +99,22 @@ function game(){
      else
         console.log("tied game")
 }
+const yourScore=document.querySelector('#yourscore');
+const cmpScore=document.querySelector('#cmpscore');
+const rndResult=document.querySelector('#rndresult');
 const choices=document.querySelectorAll('button');
 
+
+
+
 choices.forEach((choice)  => {
+
     choice.addEventListener('click', ()=>{
-       console.log(oneRound(choice.textContent, computerPlay()));
+    if(parseInt(yourScore.textContent)<5 && parseInt(cmpScore.textContent)<5)
+       oneRound(choice.textContent, computerPlay()) 
     })
+
+
 })
 
 //game()
