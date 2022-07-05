@@ -80,7 +80,15 @@ function game(){
      else
         console.log("tied game")
 }
-game()
+const choices=document.querySelectorAll('button');
+
+choices.forEach((choice)  => {
+    choice.addEventListener('click', ()=>{
+       console.log(oneRound(choice.textContent, computerPlay()));
+    })
+})
+
+//game()
 /*computerPlay()
 const playerSelection = "ROCK";
 const computerSelection = computerPlay();
