@@ -1,10 +1,11 @@
-//console.log("test")
+// select DOM elements
 const yourScore = document.querySelector('#yourscore');
 const cmpScore = document.querySelector('#cmpscore');
 const rndResult = document.querySelector('#rndresult');
 const choices = document.querySelectorAll('button');
 const playerChoice = document.querySelector('#playerChoice');
 const computerChoice = document.querySelector('#computerChoice');
+//generate a random play
 function computerPlay() {
   let rndNumber = Math.floor(Math.random() * 3);
   console.log(rndNumber);
@@ -22,6 +23,7 @@ function computerPlay() {
   //console.log(cmpChoice)
   return cmpChoice;
 }
+//logic for deciding who wins the round
 function oneRound(playerSelection, computerSelection) {
   switch (playerSelection.toUpperCase()) {
     case 'ROCK':
@@ -85,6 +87,7 @@ function oneRound(playerSelection, computerSelection) {
       }
       break;
   }
+  //checks for win
   if (parseInt(yourScore.textContent) == 5) {
     rndResult.textContent = 'YOU WON THE GAME';
     choices.forEach((choice) => {
@@ -99,23 +102,6 @@ function oneRound(playerSelection, computerSelection) {
     });
   }
 }
-function game() {
-  let playerScore = 0;
-  let computerScore = 0;
-  for (let i = 0; i < 5; i++) {
-    let playerSelection = prompt('Pick');
-    computerSelection = computerPlay();
-    let result = oneRound(playerSelection, computerSelection);
-    if (result == 'You win') playerScore++;
-    else if (result == 'You lose') computerScore++;
-    console.log(
-      result + ' score player: ' + playerScore + ' computer: ' + computerScore
-    );
-  }
-  if (playerScore > computerScore) console.log('you won the game');
-  else if (playerScore < computerScore) console.log('you lost the game');
-  else console.log('tied game');
-}
 
 // add click listeners on rock paper scissors buttons
 choices.forEach((choice) => {
@@ -127,10 +113,3 @@ choices.forEach((choice) => {
       oneRound(choice.textContent, computerPlay());
   });
 });
-
-//game()
-/*computerPlay()
-const playerSelection = "ROCK";
-const computerSelection = computerPlay();
-console.log(computerSelection);
-console.log(oneRound(playerSelection, computerSelection));*/
