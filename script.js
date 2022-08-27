@@ -93,7 +93,7 @@ function oneRound(playerSelection, computerSelection) {
   }
 
   if (parseInt(cmpScore.textContent) == 5) {
-    rndResult.textContent = 'YOU WON THE GAME';
+    rndResult.textContent = 'COMPUTER WON THE GAME';
     choices.forEach((choice) => {
       choice.disabled = true;
     });
